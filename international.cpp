@@ -1,10 +1,25 @@
+/*
+  Filename   : international.cpp
+  Author     : Darlin J. Piruch
+  Date       : 2023-07-05
+  Description: This code takes a string as input and performs a number extraction 
+  and summation operation. Given a string containing a combination of alphabetic characters 
+  and numeric digits, the code identifies and extracts the individual numeric values 
+  from the string. It then proceeds to calculate the sum of these extracted numbers to get the actual number
+  in the string.
+*/
+
 
 #include <iostream>
 #include <string>
 #include <vector>
 using namespace std;
 
-
+/*
+This function converts a givne string into a vector of integers. the purpose of this method
+is to extract the numeric digits from the input string and store them as individual integers
+in a vector.
+*/
 std::vector<int> stringToInt(const std::string& str){
     
     std::vector<int> vec;
@@ -13,12 +28,12 @@ std::vector<int> stringToInt(const std::string& str){
     int num;
     for(size_t i = 0; i < str.length(); ++i){
         ch = str.at(i);
-        if(isdigit(ch)){
-            num = int(ch - '0');
-            vec.push_back(num);
+        if(isdigit(ch)){//checks if it is a numeric digit using 'isdigit' function
+            num = int(ch - '0');//if the character is indeed a digit, it is converted to an int
+            vec.push_back(num);//the int is added to the vector
         }
     }
-    return vec;
+    return vec;//after processing all characters in the string input, the method returns the populated vector
 }
 
 int getInt(const std::vector<int> vec){
